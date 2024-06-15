@@ -11,8 +11,10 @@ public class ProductsController : ControllerBase
         new Product
         {
             Id = "1",
-            ImageInactive = "Icons/salt/inactive.svg",
-            ImageActive = "Icons/salt/active.svg",
+            ImageInactive = "http://localhost:5010/Icons/salt/inactive.png",
+            ImageActive = "http://localhost:5010/Icons/salt/active.png",
+            ImageInactiveDesktop = "http://localhost:5010/Icons/salt/inactiveDesktop.png",
+            ImageActiveDesktop = "http://localhost:5010/Icons/salt/activeDesktop.png",
             Name = "Salt",
             Description = "Simple like the seawater, nothing more",
             Price = 10
@@ -20,8 +22,10 @@ public class ProductsController : ControllerBase
         new Product
         {
             Id = "2",
-            ImageInactive = "Icons/shoyu/inactive.svg",
-            ImageActive = "Icons/shoyu/active.svg",
+            ImageInactive = "http://localhost:5010/Icons/shoyu/inactive.png",
+            ImageActive = "http://localhost:5010/ICons/shoyu/active.png",
+            ImageInactiveDesktop = "http://localhost:5010/Icons/shoyu/inactiveDesktop.png",
+            ImageActiveDesktop = "http://localhost:5010/Icons/shoyu/activeDesktop.png",
             Name = "Shoyu",
             Description = "The good old and traditional soy sauce",
             Price = 10
@@ -29,8 +33,10 @@ public class ProductsController : ControllerBase
         new Product
         {
             Id = "3",
-            ImageInactive = "Icons/miso/inactive.svg",
-            ImageActive = "Icons/miso/active.svg",
+            ImageInactive = "http://localhost:5010/Icons/miso/inactive.png",
+            ImageActive = "http://localhost:5010/Icons/miso/active.png",
+            ImageInactiveDesktop = "http://localhost:5010/Icons/miso/inactiveDesktop.png",
+            ImageActiveDesktop = "http://localhost:5010/Icons/miso/activeDesktop.png",
             Name = "Miso",
             Description = "Paste made of fermented soybeans",
             Price = 12
@@ -42,8 +48,10 @@ public class ProductsController : ControllerBase
         new Product
         {
             Id = "1",
-            ImageInactive = "Icons/pork/inactive.svg",
-            ImageActive = "Icons/pork/active.svg",
+            ImageInactive = "http://localhost:5010/Icons/pork/inactive.png",
+            ImageActive = "http://localhost:5010/Icons/pork/active.png",
+            ImageInactiveDesktop = "http://localhost:5010/Icons/pork/inactiveDesktop.png",
+            ImageActiveDesktop = "http://localhost:5010/Icons/pork/activeDesktop.png",
             Name = "Chasu",
             Description = "A sliced flavourful pork meat with a selection of season vegetables.",
             Price = 10
@@ -51,8 +59,10 @@ public class ProductsController : ControllerBase
         new Product
         {
             Id = "2",
-            ImageInactive = "Icons/yasai/inactive.svg",
-            ImageActive = "Icons/yasai/active.svg",
+            ImageInactive = "http://localhost:5010/Icons/yasai/inactive.png",
+            ImageActive = "http://localhost:5010/Icons/yasai/active.png",
+            ImageInactiveDesktop = "http://localhost:5010/Icons/yasai/inactiveDesktop.png",
+            ImageActiveDesktop = "http://localhost:5010/Icons/yasai/activeDesktop.png",
             Name = "Yasai Vegetarian",
             Description = "A delicious vegetarian lamen with a selection of season vegetables.",
             Price = 10
@@ -60,8 +70,10 @@ public class ProductsController : ControllerBase
         new Product
         {
             Id = "3",
-            ImageInactive = "Icons/chicken/inactive.svg",
-            ImageActive = "Icons/chicken/active.svg",
+            ImageInactive = "http://localhost:5010/Icons/chicken/inactive.png",
+            ImageActive = "http://localhost:5010/Icons/chicken/active.png",
+            ImageInactiveDesktop = "http://localhost:5010/Icons/chicken/inactiveDesktop.png",
+            ImageActiveDesktop = "http://localhost:5010/Icons/chicken/activeDesktop.png",
             Name = "Karaague",
             Description = "Three units of fried chicken, moyashi, ajitama egg and other vegetables.",
             Price = 12
@@ -102,7 +114,6 @@ public class ProductsController : ControllerBase
 
         if (string.IsNullOrEmpty(order.ProteinId))
         {
-            // Caso onde apenas brothId é fornecido
             switch (order.BrothId)
             {
                 case "1":
@@ -110,7 +121,7 @@ public class ProductsController : ControllerBase
                     {
                         Id = "1",
                         Description = "Salt",
-                        Image = "Images/Salt/salt_only.png"
+                        Image = "http://localhost:5010/Icons/salt/salt_only.png"
                     };
                     break;
                 case "2":
@@ -118,7 +129,7 @@ public class ProductsController : ControllerBase
                     {
                         Id = "2",
                         Description = "Shoyu",
-                        Image = "Images/Shoyu/shoyu_only.png"
+                        Image = "http://localhost:5010/Icons/shoyu/shoyu_only.png"
                     };
                     break;
                 case "3":
@@ -126,7 +137,7 @@ public class ProductsController : ControllerBase
                     {
                         Id = "3",
                         Description = "Miso",
-                        Image = "Images/Miso/miso_only.png"
+                        Image = "http://localhost:5010/Icons/miso/miso_only.png"
                     };
                     break;
                 default:
@@ -142,7 +153,6 @@ public class ProductsController : ControllerBase
                 return StatusCode(500, new { error = "could not place order" });
             }
 
-            // Combinações específicas de brothId e proteinId
             switch (order.BrothId)
             {
                 case "1":
@@ -153,7 +163,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "11",
                                 Description = "Salt and Chasu Ramen",
-                                Image = "Images/Salt/salt_chasu.png"
+                                Image = "http://localhost:5010/Icons/salt/salt_chasu.png"
                             };
                             break;
                         case "2":
@@ -161,7 +171,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "12",
                                 Description = "Salt and Yasai Vegetarian",
-                                Image = "Images/Salt/salt_yasai.png"
+                                Image = "http://localhost:5010/Icons/salt/salt_yasai.png"
                             };
                             break;
                         case "3":
@@ -169,7 +179,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "13",
                                 Description = "Salt and Karaague",
-                                Image = "Images/Salt/salt_karaague.png"
+                                Image = "http://localhost:5010/Icons/salt/salt_karaague.png"
                             };
                             break;
                         default:
@@ -185,7 +195,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "21",
                                 Description = "Shoyu and Chasu Ramen",
-                                Image = "Images/Shoyu/shoyu_chasu.png"
+                                Image = "http://localhost:5010/Icons/shoyu/shoyu_chasu.png"
                             };
                             break;
                         case "2":
@@ -193,7 +203,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "22",
                                 Description = "Shoyu and Yasai Vegetarian",
-                                Image = "Images/Shoyu/shoyu_yasai.png"
+                                Image = "http://localhost:5010/Icons/shoyu/shoyu_yasai.png"
                             };
                             break;
                         case "3":
@@ -201,7 +211,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "23",
                                 Description = "Shoyu and Karaague",
-                                Image = "Images/Shoyu/shoyu_karaague.png"
+                                Image = "http://localhost:5010/Icons/shoyu/shoyu_karaague.png"
                             };
                             break;
                         default:
@@ -217,7 +227,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "31",
                                 Description = "Miso and Chasu Ramen",
-                                Image = "Images/Miso/miso_chasu.png"
+                                Image = "http://localhost:5010/Icons/miso/miso_chasu.png"
                             };
                             break;
                         case "2":
@@ -225,7 +235,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "32",
                                 Description = "Miso and Yasai Vegetarian",
-                                Image = "Images/Miso/miso_yasai.png"
+                                Image = "http://localhost:5010/Icons/miso/miso_yasai.png"
                             };
                             break;
                         case "3":
@@ -233,7 +243,7 @@ public class ProductsController : ControllerBase
                             {
                                 Id = "33",
                                 Description = "Miso and Karaague",
-                                Image = "Images/Miso/miso_karaage.png"
+                                Image = "http://localhost:5010/Icons/miso/miso_karaage.png"
                             };
                             break;
                         default:
@@ -249,5 +259,3 @@ public class ProductsController : ControllerBase
         return CreatedAtAction(nameof(PlaceOrder), response);
     }
 }
-
-

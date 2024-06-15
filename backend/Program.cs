@@ -1,20 +1,19 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adiciona serviços ao container.
 builder.Services.AddControllers();
-
-// Configura o Swagger
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
 
-    // Adiciona a definição de segurança para a chave de API
     c.AddSecurityDefinition("ApiKey", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -23,7 +22,6 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API Key needed to access the endpoints."
     });
 
-    // Adiciona o requisito de segurança global
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -40,16 +38,36 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "icons")),
+    RequestPath = "/icons"
+});
+
 app.UseRouting();
+app.UseCors("AllowAll");
 app.UseAuthorization();
 
 app.UseSwagger();

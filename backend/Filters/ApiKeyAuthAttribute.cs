@@ -11,9 +11,7 @@ public class ApiKeyAuthAttribute : ActionFilterAttribute
         {
             context.Result = new JsonResult(new { error = "x-api-key header missing" }) { StatusCode = 403 };
             return;
-        }
-
-        // Validação adicional pode ser feita aqui, se necessário
+        }        
 
         base.OnActionExecuting(context);
     }

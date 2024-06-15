@@ -1,0 +1,94 @@
+.containerSuccess{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.firstSection{
+    width: 50%;
+    background-image: url('../Images/backgrounds/background_blue_desktop.png');
+    background-size: cover;
+}
+.headerFirstSection{
+    padding: 2rem;
+}
+.orderDetails{
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.TitleDetails{
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--color-beige);
+}
+.subTitleDetails{
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-mustard);
+}
+.secondSection{
+    width: 50%;
+    background-color: var(--color-beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.informationsSecondSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.titleInformation{
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--color-orange);
+}
+.textInformation{
+    font-weight: bolder;
+    font-size: 0.8rem;
+}
+.buttonInformation{
+    width: 13rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-blue);
+    color: var(--color-beige);
+    letter-spacing: 0.1rem;
+    font-weight: 800;   
+    font-size: 0.8rem;
+}
+.hidden {
+    display: none;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+
+@media (max-width: 850px){
+    .containerSuccess {
+        width: 100%;
+        flex-direction: column;
+        height: 150vh; 
+    }
+    
+    .firstSection,
+    .secondSection {
+        width: 100%;
+        height: 110%; 
+        align-items: center;
+        justify-content: center;
+    }
+    .orderDetails{
+        padding-bottom: 10rem;
+    }
+}
